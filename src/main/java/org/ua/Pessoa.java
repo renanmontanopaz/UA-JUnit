@@ -33,4 +33,104 @@ package org.ua;
  */
 
 public class Pessoa {
+
+    private String nome;
+    private int idade;
+    private String endereco;
+    private String genero;
+    private int telefone;
+    private int tempoTrabalho;
+    private int tempoAposentar;
+
+    public Pessoa(String nome, int idade, String endereco, String genero, int telefone, int tempoTrabalho) {
+        this.nome = nome;
+        this.idade = idade;
+        this.endereco = endereco;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.tempoTrabalho = tempoTrabalho;
+    }
+
+    public Pessoa() {
+
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public int getTempoTrabalho() {
+        return tempoTrabalho;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setTempoTrabalho(int tempoTrabalho) {
+        this.tempoTrabalho = tempoTrabalho;
+    }
+
+    public void setTempoAposentar(int tempoAposentar) {
+        this.tempoAposentar = tempoAposentar;
+    }
+
+    public String getNomeETelefone(){
+        return nome + telefone;
+    }
+
+    public void getTempoParaSeAposentar(String genero, int idade){
+        if(this.genero == "F" && this.idade >= 60){
+            this.tempoAposentar += 60 - idade;
+        } else if (this.genero == "M" && this.idade >= 65) {
+            this.tempoAposentar += 65 - idade;
+        } else {
+            throw new RuntimeException("Erro");
+        }
+    }
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", endereco='" + endereco + '\'' +
+                ", genero='" + genero + '\'' +
+                ", telefone=" + telefone +
+                ", tempoTrabalho=" + tempoTrabalho +
+                '}';
+    }
+
+
 }
