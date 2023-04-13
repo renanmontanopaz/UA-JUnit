@@ -108,14 +108,18 @@ public class Pessoa {
     }
 
     public String getNomeETelefone(){
-        return nome + telefone;
+        return nome+" "+ telefone;
     }
 
-    public void getTempoParaSeAposentar(String genero, int idade){
-        if(this.genero == "F" && this.idade >= 60){
-            this.tempoAposentar += 60 - idade;
-        } else if (this.genero == "M" && this.idade >= 65) {
-            this.tempoAposentar += 65 - idade;
+    public int getTempoParaSeAposentar(String genero, int idade){
+        if(this.genero == "F" && this.idade <= 60){
+            tempoAposentar += 60 - idade;
+            System.out.println("Falta "+tempoAposentar+" anos para se aposentar!");
+            return tempoAposentar;
+        } else if (this.genero == "M" && this.idade <= 65) {
+            tempoAposentar += 65 - idade;
+            System.out.println("Falta "+tempoAposentar+" anos para se aposentar!");
+            return tempoAposentar;
         } else {
             throw new RuntimeException("Erro");
         }
@@ -131,6 +135,5 @@ public class Pessoa {
                 ", tempoTrabalho=" + tempoTrabalho +
                 '}';
     }
-
 
 }
